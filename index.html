@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css"/>
+  <title>My Jquery Agenda</title>
+</head>
+<body>
+  <h1>DAY PLANNER</h1>
+  <h2 id="currentTime"></h2>
+  <h2 id="biggerTask"></h2>
+  
+  <table>
+    <tr>
+      <td>9am</td>
+      <td><textarea id="9"></textarea></td>
+      <td><button>SUBMIT</button></td>
+    </tr>
+    <tr>
+      <td>10am</td>
+      <td><textarea id="10"></textarea></td>
+      <td><button>SUBMIT</button></td>
+    </tr>
+    <tr>
+      <td>11am</td>
+      <td><textarea id="11"></textarea></td>
+      <td><button>SUBMIT</button></td>
+    </tr>
+    <tr>
+      <td>12pm</td>
+      <td><textarea id="12"></textarea></td>
+      <td><button>SUBMIT</button></td>
+    </tr>
+    <tr>
+      <td>13:</td>
+      <td><textarea id="13"></textarea></td>
+      <td><button>SUBMIT</button></td>
+    </tr>
+    <tr>
+      <td>14m</td>
+      <td><textarea id="14"></textarea></td>
+      <td><button>SUBMIT</button></td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td><textarea id="15"></textarea></td>
+      <td><button>SUBMIT</button></td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td><textarea id="16"></textarea></td>
+      <td><button>SUBMIT</button></td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td><textarea id="17"></textarea></td>
+      <td><button>SUBMIT</button></td>
+    </tr>
+  
+  </table>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    
+    
+//variables 
+
+var now = moment().format('MMMM Do YYYY, h:mm a');
+var curHour = moment().format('H')
+curHour = parseInt(curHour);
+console.log(curHour)
+
+$("#currentTime").text(now);
+
+var task = localStorage.getItem("9");
+$("#9").val(task)
+$("#biggerTask").text(task)
+
+$("button").on("click", function(){
+  var task = $("#9").val();
+  console.log(task);
+
+  localStorage.setItem("9", task)
+})
+
+$("textarea").each(function(){
+  var calHour = $(this).attr("id");
+  calHour = parseInt(calHour);
+  if(curHour > calHour){
+    $(this).addClass("past")
+  } else if (calHour > curHour){
+    $(this).addClass("future")
+  } else {
+    $(this).addClass("present")
+  }
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
