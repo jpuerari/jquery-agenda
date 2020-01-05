@@ -78,41 +78,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script>
-    
-    
-//variables 
-
-var now = moment().format('MMMM Do YYYY, h:mm a');
-var curHour = moment().format('H')
-curHour = parseInt(curHour);
-console.log(curHour)
-
-$("#currentTime").text(now);
-
-var task = localStorage.getItem("9");
-$("#9").val(task)
-$("#biggerTask").text(task)
-
-$("button").on("click", function(){
-  var task = $("#9").val();
-  console.log(task);
-
-  localStorage.setItem("9", task)
-})
-
-$("textarea").each(function(){
-  var calHour = $(this).attr("id");
-  calHour = parseInt(calHour);
-  if(curHour > calHour){
-    $(this).addClass("past")
-  } else if (calHour > curHour){
-    $(this).addClass("future")
-  } else {
-    $(this).addClass("present")
-  }
-});
-
-</script>
+  <script src="script.js"></script>
 </body>
 </html>
