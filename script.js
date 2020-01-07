@@ -1,4 +1,4 @@
-//JavaScript Functionality for Agenda
+//Javascript Functionality for Agenda
 
 //Step 1: Lay Out Variables with Documentation Formt
 var now = moment().format('MMMM Do YYYY, h:mm a');
