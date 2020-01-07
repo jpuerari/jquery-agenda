@@ -17,10 +17,12 @@ $("#biggerTask").text(task)
 //Step 3: Create Button Function to Store Data to Local Storage
 
 $("button").on("click", function(){
-  var task = $("#9").val();
+  var taskNum = $(this).val()
+  console.log(taskNum)
+  var task = $(`#${taskNum}`).val();
   console.log(task);
 
-  localStorage.setItem("9", task)
+  localStorage.setItem(taskNum, task)
 })
 
 //Step 4: Display Text Area to Page
