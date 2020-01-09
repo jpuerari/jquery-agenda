@@ -1,5 +1,7 @@
 //Javascript Functionality for Agenda
 
+//Javascript Functionality for Agenda
+
 //Step 1: Lay Out Variables with Documentation Formt
 var now = moment().format('MMMM Do YYYY, h:mm a');
 var curHour = moment().format('H')
@@ -10,9 +12,7 @@ console.log(curHour)
 
 $("#currentTime").text(now);
 
-var task = localStorage.getItem("9");
-$("#9").val(task)
-$("#biggerTask").text(task)
+
 
 //Step 3: Create Button Function to Store Data to Local Storage
 
@@ -30,7 +30,11 @@ $("textarea").each(function(){
   var calHour = $(this).attr("id");
   calHour = parseInt(calHour);
 
-//Step 4: Create If/Else state to test the time
+  var task = localStorage.getItem(calHour);
+  console.log(task)
+  $(this).val(task)
+
+  //Step 5: Create If/Else state to test the time
   if(curHour > calHour){
     $(this).addClass("past")
   } else if (calHour > curHour){
